@@ -15,6 +15,10 @@ SOURCES = main.c uart.c ESP8266.c lcd.c sensorFetchAndSend.c thesupersensor.c
 
 DEBUG?=1
 
+GTEST = gtest
+LIBGTEST = C:\msys64\mingw64\lib\libgtest_main.a C:\msys64\mingw64\lib\libgtest.a
+TEST=check.exe
+
 ifeq ($(DEBUG), 1)
 	OUTPUTDIR=bin/debug
 else
@@ -39,6 +43,12 @@ $(OUTPUTDIR)/%.o:%.c
 
 
 $(OBJS):$(SOURCES)
+
+$(TEST): TestFetchAndSend.cpp
+	g++ -o $@ $^ -DF_CPU=16000000UL -I $(GTEST)  $(LIBGTEST)	
+
+test: $(TEST)
+	./$(TEST)
 
 %.hex: %.elf
 	$(OBJCOPY) -O ihex -R .fuse -R .lock -R .user_signatures -R .comment $< $@
