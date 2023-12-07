@@ -31,13 +31,12 @@ int main (void)
 	supersensor_init();
 	while(1)
 	{
-/*
-    int data = supersensor_get();				// Get dummy data
-    addData("field1",data);
-    data = supersensor_get();				// Get dummy data
-    addData("field2",data);
-    pushData();							// Push data to Firebase
-*/		
+		// int data = supersensor_get();				// Get dummy data
+		// addData("field1",data);
+		// data = supersensor_get();				// Get dummy data
+		// addData("field2",data);
+		// pushData();							// Push data to Firebase
+		
 		fetchAndSend();
 		_delay_ms(5000);
 	}
