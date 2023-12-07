@@ -64,19 +64,19 @@ TEST_F(FetchAndSendTest,pushDataShouldBeCalledOnce){
 
 }
 
-// TEST_F(FetchAndSendTest,addDataShouldSendCorrectData){
-//     // ARRANGE - control the world
-//     setup();
-//     supersensor_get_fake.return_val = 99;
+TEST_F(FetchAndSendTest,addDataShouldSendCorrectData){
+    // ARRANGE - control the world
+    setup();
+    supersensor_get_fake.return_val = 99;
 
-//     // ACT
-//     fetchAndSend(); 
+    // ACT
+    fetchAndSend(); 
 
-//     // ASSERT -  argumenten till addData var "field1", 
-//     ASSERT_EQ(addData_fake.arg0_val, "field1");
-//     ASSERT_EQ(addData_fake.arg1_val, 99);
+    // ASSERT -  argumenten till addData var "field1", 
+    ASSERT_EQ(addData_fake.arg0_val, "field2");
+    ASSERT_EQ(addData_fake.arg1_val, 99);
 
-// }
+}
 
 
 
