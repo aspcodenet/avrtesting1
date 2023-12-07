@@ -4,7 +4,7 @@ extern "C" {
     #include "sensorFetchAndSend.c"
 }
 
-unsigned int supersensor_get(){
+unsigned int supersensor_get(){ 
     return 12;
 }
 int antal;

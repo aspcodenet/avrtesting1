@@ -45,7 +45,7 @@ $(OUTPUTDIR)/%.o:%.c
 $(OBJS):$(SOURCES)
 
 $(TEST): TestFetchAndSend.cpp
-	g++ -o $@ $^ -DF_CPU=16000000UL -I $(GTEST)  $(LIBGTEST)	
+	g++ -pthread -o $@ $^ -DF_CPU=16000000UL -I $(GTEST)  $(LIBGTEST)	
 
 test: $(TEST)
 	./$(TEST)
